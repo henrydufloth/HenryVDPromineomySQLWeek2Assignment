@@ -1,0 +1,3 @@
+SELECT titles.title, COUNT(employees.emp_no) AS "Count of Employees" FROM employees INNER JOIN titles ON titles.emp_no = employees.emp_no WHERE employees.birth_date > '1965-01-01' GROUP BY titles.title;
+SELECT titles.title, AVG(salaries.salary) AS "Average Salary" FROM titles INNER JOIN salaries ON salaries.emp_no = titles.emp_no GROUP BY titles.title;
+SELECT SUM(salaries.salary) AS "Total Spent" FROM salaries INNER JOIN dept_emp ON dept_emp.emp_no = salaries.emp_no INNER JOIN departments ON departments.dept_no = dept_emp.dept_no WHERE departments.dept_no = 'd001' AND (dept_emp.from_date <= '1992-12-31' AND dept_emp.to_date >= '1990-01-01'  AND salaries.from_date <= '1992-12-31' AND salaries.to_date >= '1990-01-01'); 
